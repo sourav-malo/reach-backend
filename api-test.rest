@@ -1,0 +1,16 @@
+@contentType = multipart/form-data;
+
+### 01. Admin Login
+
+POST {{$dotenv ROOT_DIR}}/api/admin/login.php 
+Content-Type: {{contentType}} boundary=----register
+
+------register
+Content-Disposition: form-data; name="username"
+
+admin
+------register
+Content-Disposition: form-data; name="password"
+
+123456
+------register--
