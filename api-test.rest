@@ -75,3 +75,18 @@ Content-Disposition: form-data; name="id"
 
 1
 ------confirm-registration--
+
+### 06. User Login
+
+POST {{$dotenv ROOT_DIR}}/api/user/login.php 
+Content-Type: {{contentType}} boundary=----user-login
+
+------user-login
+Content-Disposition: form-data; name="email"
+
+sourav.cse5.bu@gmail.com
+------user-login
+Content-Disposition: form-data; name="password"
+
+12345678
+------user-login--
