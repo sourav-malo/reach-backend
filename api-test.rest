@@ -90,3 +90,15 @@ Content-Disposition: form-data; name="password"
 
 12345678
 ------user-login--
+
+### 06. Update Category Id
+
+POST {{$dotenv ROOT_DIR}}/api/user/update-category.php 
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.oLh9Zr6N1wdTXMtbvCxiVjSsTxGLgY2ggIyNwp_TfY0
+Content-Type: {{contentType}} boundary=----update-category
+
+------update-category
+Content-Disposition: form-data; name="categoryId"
+
+5
+------update-category--

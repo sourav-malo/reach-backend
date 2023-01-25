@@ -23,5 +23,17 @@
 
       return $stmt;
     }
+
+    public function readById() {
+      $query = "SELECT * FROM `$this->tableName` WHERE `id` = :id;";
+
+      $stmt = $this->conn->prepare($query);
+
+      $stmt->bindParam(':id', $this->id);
+
+      $stmt->execute();
+
+      return $stmt;
+    }
   }
 ?>

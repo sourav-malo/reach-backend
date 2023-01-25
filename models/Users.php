@@ -95,5 +95,17 @@
 
       return $stmt->execute() ? true : false;
     }
+
+    public function updateCategoryId() {
+      $query = "UPDATE `$this->tableName` SET `categoryId` = :categoryId, `updatedAt` = :updatedAt WHERE `id` = :id;";
+
+      $stmt = $this->conn->prepare($query);
+
+      $stmt->bindParam(':categoryId', $this->categoryId);
+      $stmt->bindParam(':updatedAt', $this->updatedAt);
+      $stmt->bindParam(':id', $this->id);
+
+      return $stmt->execute() ? true : false;
+    }
   }
 ?>
