@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2023 at 07:53 AM
+-- Generation Time: Jan 25, 2023 at 05:39 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -33,6 +33,17 @@ CREATE TABLE `categories` (
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
+(1, 'Doctor', '2023-01-25 01:07:44', '2023-01-25 01:07:44'),
+(2, 'Nurse', '2023-01-25 01:07:44', '2023-01-25 01:07:44'),
+(3, 'Maid', '2023-01-25 01:07:44', '2023-01-25 01:07:44'),
+(4, 'Electrician', '2023-01-25 01:07:44', '2023-01-25 01:07:44'),
+(5, 'Plumber', '2023-01-25 01:08:03', '2023-01-25 01:08:03');
 
 -- --------------------------------------------------------
 
@@ -97,13 +108,20 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `phone` varchar(14) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `isVerified` tinyint(4) NOT NULL,
-  `description` text DEFAULT NULL,
+  `isVerified` tinyint(1) NOT NULL DEFAULT 0,
+  `description` text NOT NULL,
   `categoryId` int(11) DEFAULT NULL,
   `currentBalance` decimal(10,2) NOT NULL DEFAULT 0.00,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `firstName`, `lastName`, `email`, `phone`, `password`, `isVerified`, `description`, `categoryId`, `currentBalance`, `createdAt`, `updatedAt`) VALUES
+(1, 'Sourav', 'Malo', 'sourav.cse5.bu@gmail.com', '+8801303458829', '$2y$10$ThXri/FOce0FHOd9QkIQTu9bZh6D27S17x/PLg9qF.JG92DQVWI6O', 0, 'I am currently a CSE student styding at University of Barishal. I am doing part time freelancing for last 2 years on fiverr marketplace.', NULL, '0.00', '2023-01-25 04:29:54', '2023-01-25 04:29:54');
 
 --
 -- Indexes for dumped tables
@@ -156,7 +174,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `chat`
@@ -174,7 +192,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

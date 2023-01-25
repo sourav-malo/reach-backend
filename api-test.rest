@@ -21,3 +21,45 @@ POST {{$dotenv ROOT_DIR}}/api/shared/read-categories.php
 Content-Type: {{contentType}} boundary=----read-categories
 
 ------read-categories
+
+### 03. User Login
+
+POST {{$dotenv ROOT_DIR}}/api/user/register.php 
+Content-Type: {{contentType}} boundary=----user-login
+
+------user-login
+Content-Disposition: form-data; name="firstName"
+
+Sourav
+------user-login
+Content-Disposition: form-data; name="lastName"
+
+Malo
+------user-login
+Content-Disposition: form-data; name="email"
+
+sourav.cse5.bu@gmail.com
+------user-login
+Content-Disposition: form-data; name="phone"
+
++8801303458829
+------user-login
+Content-Disposition: form-data; name="password"
+
+12345678
+------user-login
+Content-Disposition: form-data; name="confirmPassword"
+
+12345678
+------user-login
+Content-Disposition: form-data; name="description"
+
+I am currently a CSE student styding at University of Barishal. I am doing part time freelancing for last 2 years on fiverr marketplace.
+------user-login--
+
+### 04. Read Users
+
+POST {{$dotenv ROOT_DIR}}/api/admin/read-users.php 
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIn0.Zm7BvHJ9P_J7gedvTuDCXK39yEaI6p-T_FWR5FNnlr0
+Content-Type: {{contentType}} boundary=----read-users
+------read-users--
