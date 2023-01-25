@@ -23,6 +23,7 @@
   require __DIR__ . '/validations/confirm-registration.validation.php';
 
   $users->isVerified = 1;
+  $users->updatedAt = date('Y-m-d H:i:s', time());
 
   if(!$users->updateIsVerified()) {
     http_response_code(500);

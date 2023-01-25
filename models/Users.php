@@ -86,11 +86,12 @@
     }
 
     public function updateIsVerified() {
-      $query = "UPDATE `$this->tableName` SET `isVerified` = :isVerified WHERE `id` = :id;";
+      $query = "UPDATE `$this->tableName` SET `isVerified` = :isVerified, `updatedAt` = :updatedAt WHERE `id` = :id;";
 
       $stmt = $this->conn->prepare($query);
 
       $stmt->bindParam(':isVerified', $this->isVerified);
+      $stmt->bindParam(':updatedAt', $this->updatedAt);
       $stmt->bindParam(':id', $this->id);
 
       return $stmt->execute() ? true : false;
