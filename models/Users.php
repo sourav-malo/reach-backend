@@ -32,6 +32,18 @@
       return $stmt;
     }
 
+    public function readById() {
+      $query = "SELECT * FROM `$this->tableName` WHERE `id` = :id;";
+
+      $stmt = $this->conn->prepare($query);
+
+      $stmt->bindParam(':id', $this->id);
+
+      $stmt->execute();
+
+      return $stmt;
+    }
+
     public function readByPhone() {
       $query = "SELECT * FROM `$this->tableName` WHERE `phone` = :phone;";
 
@@ -69,6 +81,17 @@
       $stmt->bindParam(':description', $this->description);
       $stmt->bindParam(':createdAt', $this->createdAt);
       $stmt->bindParam(':updatedAt', $this->updatedAt);
+
+      return $stmt->execute() ? true : false;
+    }
+
+    public function updateIsVerified() {
+      $query = "UPDATE `$this->tableName` SET `isVerified` = :isVerified WHERE `id` = :id;";
+
+      $stmt = $this->conn->prepare($query);
+
+      $stmt->bindParam(':isVerified', $this->isVerified);
+      $stmt->bindParam(':id', $this->id);
 
       return $stmt->execute() ? true : false;
     }

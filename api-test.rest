@@ -63,3 +63,15 @@ POST {{$dotenv ROOT_DIR}}/api/admin/read-users.php
 Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIn0.Zm7BvHJ9P_J7gedvTuDCXK39yEaI6p-T_FWR5FNnlr0
 Content-Type: {{contentType}} boundary=----read-users
 ------read-users--
+
+### 05. Confirm Registration
+
+POST {{$dotenv ROOT_DIR}}/api/admin/confirm-registration.php 
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIn0.Zm7BvHJ9P_J7gedvTuDCXK39yEaI6p-T_FWR5FNnlr0
+Content-Type: {{contentType}} boundary=----confirm-registration
+
+------confirm-registration
+Content-Disposition: form-data; name="id"
+
+1
+------confirm-registration--
