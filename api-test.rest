@@ -3,14 +3,21 @@
 ### 01. Admin Login
 
 POST {{$dotenv ROOT_DIR}}/api/admin/login.php 
-Content-Type: {{contentType}} boundary=----register
+Content-Type: {{contentType}} boundary=----admin-login
 
-------register
+------admin-login
 Content-Disposition: form-data; name="username"
 
 admin
-------register
+------admin-login
 Content-Disposition: form-data; name="password"
 
 123456
-------register--
+------admin-login--
+
+### 02. Read Categories
+
+POST {{$dotenv ROOT_DIR}}/api/shared/read-categories.php 
+Content-Type: {{contentType}} boundary=----read-categories
+
+------read-categories
